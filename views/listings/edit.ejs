@@ -1,26 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homigo: Edit</title>
-</head>
+<% layout("layouts/boilerplate") %>
+
 <body>
-    <h3>Edit your listing</h3>
-    <form method="post" action="/listings/<%= listing._id %>?_method=PUT" >
-        <input name="Listing[title]" value="<%= listing.title %>" type="text" />
-        <br/> <br>
-        <textarea name="Listing[description]"><%= listing.description %></textarea>
-        <br/> <br>
-        <input name="Listing[image]" value="<%= listing.image %>" />
-        <br/> <br>
-        <input name="Listing[price]" value="<%= listing.price %>" type="number" />
-        <br/> <br>
-        <input name="Listing[location]" value="<%= listing.location %>" type="text"/>
-        <br/> <br>
-        <input name="Listing[country]" value="<%= listing.country %>" type="text" />
-        <br/> <br>
-        <button>Save</button>
-    </form>  
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+        <h3>Edit your listing</h3>
+        <form method="post" action="/listings/<%= listing._id %>?_method=PUT" > 
+
+            <div class="mb-3">
+                <lable for="title" class="form-lable">Title</lable>
+                <input name="Listing[title]" value="<%= listing.title %>" type="text" class="form-control" />
+            </div>
+        
+            <div class="mb-3">
+                <lable for="description" class="form-lable">Description</lable>
+                <textarea name="Listing[description]" class="form-control"><%= listing.description %></textarea>
+            </div>
+
+            <div class="mb-3">
+                <lable for="image" class="form-lable">Image Link</lable>
+                <input name="Listing[image]" value="<%= listing.image.url %>" class="form-control" />
+            </div>
+
+         <div class="row">   
+            <div class="mb-3 col-md-4" >
+                <lable for="price" class="form-lable">Price</lable>
+                <input name="Listing[price]" value="<%= listing.price %>" type="number" class="form-control"/>
+            </div>
+
+            <div class="mb-3 col-md-8">
+                <lable for="country" class="form-lable">Country</lable>
+                <input name="Listing[country]" value="<%= listing.country %>" type="text" class="form-control" />
+            </div>
+        </div>
+            
+            <div class="mb-3">
+                <lable for="location" class="form-lable">Location</lable>
+                <input name="Listing[location]" value="<%= listing.location %>" type="text" class="form-control"/>
+            </div>
+        
+            <button class="btn btn-dark btn-save mt-3">Save</button>
+        </form>
+        </div>
+    </div>  
 </body>
-</html> 
