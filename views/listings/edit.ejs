@@ -19,6 +19,40 @@
             </div>
 
             <div class="mb-3">
+                <label for="category" class="form-label">
+                    Category
+                </label>
+
+                <select 
+                    name="listing[category]" 
+                    class="form-select"
+                    required
+                >
+                    <option value="">Select category</option>
+
+                    <option value="home" 
+                        <%= listing.category === "home" ? "selected" : "" %>>
+                        Homes
+                    </option>
+
+                    <option value="experience" 
+                        <%= listing.category === "experience" ? "selected" : "" %>>
+                        Experiences
+                    </option>
+
+                    <option value="service" 
+                        <%= listing.category === "service" ? "selected" : "" %>>
+                        Services
+                    </option>
+
+                </select>
+
+                <div class="invalid-feedback">
+                    Please select a category
+                </div>
+            </div>
+
+            <div class="mb-3">
                 Original listing Image : <br/>
                 <img src="<%= originalUrl  %>">
             </div>

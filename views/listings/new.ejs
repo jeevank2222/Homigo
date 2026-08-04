@@ -21,6 +21,19 @@
         </div>
 
         <div class="mb-3">
+            <lable for="category" class="form-lable"  name="listing[category]" class="form-control">Category</lable>
+            <select class="form-select" name="listing[category]" required>
+                <option value="">select category for your listing</option>
+                <option value="home">Homes</option>
+                <option value="experience">Experiences</option>
+                <option value="service">Services</option>
+            </select>
+            <div class="invalid-feedback">
+                needs to select a category
+            </div>
+        </div>
+
+        <div class="mb-3">
             <lable for="image" class="form-lable">Upload Listing Image</lable>
             <input name="listing[image][filename]" placeholder="add filename" type="file" class="form-control">
         </div>

@@ -62,3 +62,37 @@ module.exports.destroyListing = async (req,res)=>{
     req.flash("success","listing deleted successfully");
     res.redirect("/listings");
 };
+
+module.exports.experienceListings = async(req,res)=>{
+    const experiences = await Listing.find({
+        category:"experience"
+    });
+
+    res.render("listings/index.ejs", {
+        allListings: experiences
+    });
+};
+
+module.exports.homeListings = async(req,res)=>{
+
+    const homes = await Listing.find({
+        category:"home"
+    });
+
+    res.render("listings/index.ejs", {
+        allListings: homes
+    });
+
+};
+
+module.exports.serviceListings = async(req,res)=>{
+
+    const services = await Listing.find({
+        category:"service"
+    });
+
+    res.render("listings/index.ejs", {
+        allListings: services
+    });
+
+};

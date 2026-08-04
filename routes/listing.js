@@ -17,6 +17,15 @@ router.route("/")
 //New route
 router.get("/new",isLoggedIn ,listingController.renderNewForm)
 
+router.get("/homes", wrapAsync(listingController.homeListings)
+);
+
+router.get("/experiences",wrapAsync(listingController.experienceListings)
+);
+
+router.get("/services",wrapAsync(listingController.serviceListings)
+);
+
 router.route("/:id")
 .get( wrapAsync(listingController.showListing))
 .put( isLoggedIn ,isOwner , upload.single('listing[image][filename]'),validateListing, wrapAsync(listingController.updateListing))
