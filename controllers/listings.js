@@ -1,8 +1,9 @@
 const Listing = require("../models/listing");
+const axios = require("axios");
 
 module.exports.index = async(req,res)=>{
     const allListings = await Listing.find({});
-    res.render("listings/index.ejs",{allListings});
+    res.render("listings/index.ejs",{allListings,showSearch:true});
 };
 
 module.exports.renderNewForm = (req,res)=>{
@@ -25,7 +26,31 @@ module.exports.createListing = async(req,res,next)=>{
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
     newListing.image = {filename,url}
-    await newListing.save();
+    let response = await axios.get(
+    "https://nominatim.openstreetmap.org/search",
+    {
+        params:{
+            q:`${req.body.listing.location}, ${req.body.listing.country}`,
+            format:"json"
+        },
+        headers:{
+            "User-Agent":"Homigo-App"
+        }
+    });
+    console.log(response.data);
+    let coordinates = response.data[0];
+    newListing.geometry = {
+        type:"Point",
+        coordinates:[
+            Number(coordinates.lon),
+            Number(coordinates.lat)
+        ]
+    };
+    console.log(newListing.geometry);
+console.log(newListing);
+
+    const savedListing = await newListing.save();
+    console.log("SAVED DOCUMENT:", savedListing);
     req.flash("success","New listing created successfully");
     res.redirect("/listings");
 };
@@ -69,7 +94,8 @@ module.exports.experienceListings = async(req,res)=>{
     });
 
     res.render("listings/index.ejs", {
-        allListings: experiences
+        allListings: experiences,
+        showSearch:true
     });
 };
 
@@ -80,7 +106,8 @@ module.exports.homeListings = async(req,res)=>{
     });
 
     res.render("listings/index.ejs", {
-        allListings: homes
+        allListings: homes,
+        showSearch:true
     });
 
 };
@@ -92,7 +119,8 @@ module.exports.serviceListings = async(req,res)=>{
     });
 
     res.render("listings/index.ejs", {
-        allListings: services
+        allListings: services , 
+        showSearch:true
     });
 
 };

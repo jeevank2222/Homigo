@@ -33,7 +33,16 @@ const listingSchema = new Schema({
         type: String,
         enum: ["home","experience","service"],
         required: true,
+    },
+    geometry:{
+    type:{
+        type:String,
+        enum:["Point"],
+    },
+    coordinates:{
+        type:[Number],
     }
+}
 
 });
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-body-light  sticky-top">
+<nav class="navbar navbar-expand-md bg-body-light  sticky-top navbar-shadow-sm">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
@@ -9,139 +9,24 @@
         <a class="nav-link" href="/listings">Homigo</a>
       </div>
 
-      <style>
-        #filters{
-            display: flex;
-            flex-wrap: wrap;
-            margin-left: auto;
-            
-        }
-        .filter{
-            text-align: center;
-            margin-right: 3rem;
-            margin-top: 2rem;
-            opacity:0.7;
-        }
-        .filter:hover{
-            opacity: 1;
-            cursor: pointer;
-        }
-        .filter p{
-            font-size: 0.8rem ;
-            margin-top: 5px;
-        }
-        .filter i{
-            font-size: 2rem ;
-            transition: transform 0.3 ease;
-            display: inline-block;
-            transform-origin: center;
-        }
-        .filter i:hover{
-            transform: scale(1.1) ;
-        }
-
-        .btn-search{
-            background-color: #ec222f;
-            color: #fff;
-        }
-
-        .btn-search:hover{
-            background-color: #ec222f;
-            color: #fff;
-        }
-
-        .search-bar{
-    width: 75%;
-    margin: 30px auto;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 50px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 10px 12px;
-
-    box-shadow: 0 2px 10px rgba(0,0,0,.08);
-}
-
-.search-item{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    padding:0 25px;
-}
-
-.search-item label{
-    font-size:14px;
-    font-weight:600;
-    color:#222;
-    margin-bottom:4px;
-}
-
-.search-item input{
-    border:none;
-    outline:none;
-    font-size:15px;
-    color:#555;
-    background:transparent;
-}
-
-.search-item input::placeholder{
-    color:#777;
-}
-
-.divider{
-    width:1px;
-    height:40px;
-    background:#ddd;
-}
-
-.search-btn{
-    width:48px;
-    height:48px;
-    border:none;
-    border-radius:50%;
-    background:#ff385c;
-    color:white;
-    cursor:pointer;
-    font-size:18px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    transition:.3s;
-}
-
-.search-btn:hover{
-    background:#e61e4d;
-    transform:scale(1.05);
-}
-
-.search-container{
-    position: sticky;
-}
-    </style>
     <div id="filters">
-        <div class="filter">
-            <a href="/listings" class="nav-link"><div><i class="fa-solid fa-earth-americas"></i></div>
+        <div class="filter <%= currentPath == '/listings' ? 'active-filter' : '' %>">
+            <a href="/listings" class="nav-link "><div><i class="fa-solid fa-earth-americas"></i></div>
             <p>All</p></a>
         </div>
-        <div class="filter" >
-            <a href="/listings/homes" class="nav-link" >
+        <div class="filter <%= currentPath == '/listings/homes' ? 'active-filter' : '' %>" >
+            <a href="/listings/homes" class="nav-link " >
             <div><i class="fa-regular fa-house"></i></div>
             <p>Homes</p></a>
         </div>
-        <div class="filter">
-            <a href="/listings/experiences" class="nav-link" >
-            <div><i class="fa-solid fa-atom"></i></div>
+        <div class="filter <%= currentPath == '/listings/experiences' ? 'active-filter' : '' %>">
+            <a href="/listings/experiences" class="nav-link " >
+            <div><i class="fa-regular fa-star"></i></div>
             <p>Experiences</p>
             </a>
         </div>
-        <div class="filter">
-            <a href="/listings/services" class="nav-link" >
+        <div class="filter <%= currentPath == '/listings/services' ? 'active-filter' : '' %>">
+            <a href="/listings/services" class="nav-link " >
             <div><i class="fa-solid fa-bell-concierge"></i></div>
             <p>Services</p>
             </a>
@@ -158,34 +43,52 @@
         <a class="nav-link" href="/logout"><b>Logout</b></a>
         <% } %>
       </div>
+      <div class="dark">
+        <button id="theme-toggle" class="btn btn-outline-secondary">
+         <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
 
     </div>
-     </div>
+    </div>
 </nav>
 
-   <div class="search-bar">
+<% if(typeof showSearch !== "undefined" && showSearch){ %>
+
+<form action="/listings/search" method="GET" class="search-bar">
 
     <div class="search-item">
         <label>Where</label>
-        <input type="text" placeholder="Search destinations">
+        <input 
+            type="text" 
+            name="location"
+            placeholder="Search destinations">
     </div>
 
     <div class="divider"></div>
 
     <div class="search-item">
-        <label>When</label>
-        <input type="text" placeholder="Add dates">
+        <label>What</label>
+        <input 
+            type="text"
+            name="title"
+            placeholder="Villa, Cabin, Beach House...">
     </div>
 
     <div class="divider"></div>
 
     <div class="search-item">
-        <label>Who</label>
-        <input type="text" placeholder="Add guests">
+        <label>Upto</label>
+        <input 
+            type="number"
+            name="price"
+            placeholder="Add Budget">
     </div>
 
-    <button class="search-btn">
+    <button type="submit" class="search-btn">
         <i class="fa-solid fa-magnifying-glass"></i>
     </button>
 
-</div>
+</form>
+
+<% } %>

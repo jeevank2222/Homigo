@@ -64,17 +64,9 @@ app.use((req,res,next)=>{
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
     res.locals.currUser = req.user;
+    res.locals.currentPath = req.path;
     next();
 });
-
-// app.get("/demouser",async(req,res)=>{
-//     let fakeUser = new User({
-//         email: "xyz@gmail.com",
-//         username: "xyz2222",
-//     })
-//     let registeredUser = await User.register(fakeUser,"G!_2222");
-//     res.send(registeredUser);
-// })
 
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews" , reviewRouter)

@@ -26,6 +26,68 @@ router.get("/experiences",wrapAsync(listingController.experienceListings)
 router.get("/services",wrapAsync(listingController.serviceListings)
 );
 
+//search
+
+router.get("/search", async (req, res) => {
+
+    let { location, title, price } = req.query;
+
+    let query = {};
+
+
+    // Search by location
+    if(location){
+
+    query.$or = [
+        {
+            location: {
+                $regex: location,
+                $options: "i"
+            }
+        },
+        {
+            country: {
+                $regex: location,
+                $options: "i"
+            }
+        }
+    ];
+
+}
+
+
+    // Search inside title words
+    if(title){
+
+        query.title = {
+            $regex: title,
+            $options: "i"
+        };
+
+    }
+
+
+    // Price less than or equal to
+    if(price){
+
+        query.price = {
+            $lte: Number(price)
+        };
+
+    }
+
+
+    let allListings = await Listing.find(query);
+
+
+    res.render("listings/index.ejs", {
+        allListings ,
+        showSearch:true
+    });
+
+});
+
+
 router.route("/:id")
 .get( wrapAsync(listingController.showListing))
 .put( isLoggedIn ,isOwner , upload.single('listing[image][filename]'),validateListing, wrapAsync(listingController.updateListing))

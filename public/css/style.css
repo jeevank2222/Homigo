@@ -3,6 +3,7 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #F8F9FA;
 }
 
 .container{
@@ -12,8 +13,11 @@ body{
 
 /* Navbar */
 .navbar{
-    height: 7rem;
-    background-color: white;
+    height: 6rem;
+    /* background-color: white; */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
 .fa-compass{
@@ -62,24 +66,43 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: space-evenly;
+    width:100%;
+
 }
 
 /* cards */
 
-.listing-card{
+.listing-card {
     border: none !important;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.listing-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.show-card {
+    border: none !important;
+    margin-bottom: 0.5rem;
 }
 
 .card-img-top{
     border-radius: 1rem !important;
     width: 100% !important;
     object-fit: cover;
+    display: block !important;
 }
 
-.card-body{
-    padding: 0 !important;
+.listing-img{
+    height: 12rem !important;
 }
+
+.card{
+    padding: 0.7rem;
+}
+
 
 .card-text p{
     font-weight: 400 !important;
@@ -234,4 +257,69 @@ body.dark-mode .search-item input::placeholder{
 
 body.dark-mode .divider{
     background:#555;
+}
+
+/* Active filter */
+.filter.active-filter{
+    opacity:1;
+    font-weight:700;
+}
+
+.filter.active-filter i{
+    transform:scale(1.1);
+    color:#ec222f;
+}
+
+.filter.active-filter p{
+    color:#ec222f;
+}
+
+
+/* Dark mode active filter */
+body.dark-mode .filter.active-filter i,
+body.dark-mode .filter.active-filter p{
+    color:#ec222f !important;
+}
+
+.no-listings{
+    height:50vh;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+
+.no-listings h3{
+    font-size:1.8rem;
+    margin-bottom:10px;
+}
+
+
+.no-listings p{
+    font-size:1rem;
+    color:#777;
+}
+
+
+body.dark-mode .no-listings p{
+    color:#aaa;
+}
+
+#map{
+    height:500px;
+    width:100%;
+    border-radius:20px;
+    position:sticky;
+    top:100px;
+}
+
+@media(max-width:768px){
+    #map{
+        height:350px;
+        position:relative;
+        margin-top:20px;
+    }
 }
