@@ -28,8 +28,9 @@ app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
-// const mongo_url = "mongodb://127.0.0.1:27017/homigo";
 const dbUrl = process.env.ATLAS_DB_URL;
+console.log("ATLAS_DB_URL exists:", !!process.env.ATLAS_DB_URL);
+console.log("SECRET exists:", !!process.env.SECRET);
 
 async function main(){
     await mongoose.connect(dbUrl);
@@ -48,8 +49,8 @@ const store = MongoStore.create({
     touchAfter: 24*3600,
 });
 
-store.on("error",()=>{
-    console.log("error in mongo session store");
+store.on("error",(err)=>{
+    console.log("error in mongo session store",err);
 })
 
 const sessionOptions = {
