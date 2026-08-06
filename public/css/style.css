@@ -3,18 +3,48 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #F8F9FA;
+    background-color: #F5F1FB;
 }
 
 .container{
     flex: 1;
 }
 
+/* Login */
+
+.login-page {
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.login-card {
+    width: 400px;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 
+    0 10px 30px rgba(0,0,0,0.15);
+}
+.login-card h2 {
+    font-weight: 700;
+}
+
+.login-card .form-control {
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.login-card button {
+    border-radius: 10px;
+    padding: 12px;
+}
 
 /* Navbar */
 .navbar{
     height: 6rem;
-    /* background-color: white; */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
@@ -37,6 +67,7 @@ body{
 }
 
 /* footer */
+
 .f-info-links a{
     text-decoration: none;
     color: #222222;
@@ -67,7 +98,7 @@ body{
     justify-content: center;
     align-items: space-evenly;
     width:100%;
-
+    margin-top: auto;
 }
 
 /* cards */
@@ -86,6 +117,7 @@ body{
 .show-card {
     border: none !important;
     margin-bottom: 0.5rem;
+    padding: 0;
 }
 
 .card-img-top{
@@ -138,19 +170,16 @@ body{
 }
 
 /* Show page  */
-.show-img{
-    height: 30vh;
-}
 
+.show-img {
+    height: 30vh;
+    object-fit:cover;
+    background-color: #f8f8f8;
+    
+}
 .btns{
     display: flex;
 }
-
-.show-card{
-    padding-left: 0;
-    padding-right: 0;
-}
-
 
 .dark{
     display: flex;
@@ -308,18 +337,44 @@ body.dark-mode .no-listings p{
     color:#aaa;
 }
 
-#map{
-    height:500px;
-    width:100%;
-    border-radius:20px;
-    position:sticky;
-    top:100px;
-}
-
 @media(max-width:768px){
     #map{
         height:350px;
         position:relative;
         margin-top:20px;
     }
+}
+
+.detail-card {
+    border-radius: 25px !important;
+    border: none;
+    padding: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    margin-bottom: 30px;
+}
+
+
+
+#map {
+    height: 450px !important;
+    width: 100%;
+    border-radius: 15px;
+    position:sticky;
+    top:100px;
+}
+
+.detail-card{
+    border-radius:24px;
+    border:none;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.review-card{
+    border-radius:18px;
+    border:none;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.review-card .card-body{
+    padding: 0px !important;
 }

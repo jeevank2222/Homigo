@@ -15,7 +15,11 @@
              <div class="card-img-overlay"></div>
                     <div class="card-body">
                     <p class="card-text"><b> <%= listing.title %> </b>
-                     <br/> &#8377;<%= listing.price.toLocaleString("en-IN") %> 
+                     <br/><b> &#8377; <%= listing.price.toLocaleString("en-IN") %> </b>
+                    <% if (listing.category === "experience") { %>/ guest
+                    <% } else if (listing.category === "home") { %> / night
+                    <% } %> <br/>
+                    <i class="fa-solid fa-location-dot"></i><%= listing.location %> 
                      </p>
                     </div>
              </div>

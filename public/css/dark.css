@@ -160,3 +160,48 @@ body.dark-mode .search-item input{
     background: transparent !important;
     box-shadow: none !important;
 }
+
+/* Dark mode login/signup */
+.dark-mode .login-page {
+    background-color: #121212;
+}
+
+.dark-mode .login-card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-shadow: 
+    0 10px 30px rgba(0,0,0,0.5);
+}
+
+.dark-mode .login-card h2 {
+    color: #ffffff;
+}
+
+.dark-mode .login-card .form-label {
+    color: #dddddd;
+}
+
+.dark-mode .login-card .form-control {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+.dark-mode .login-card .form-control::placeholder {
+    color: #aaaaaa;
+}
+
+.dark-mode .login-card .form-control:focus {
+    background-color: #2b2b2b;
+    color: white;
+    border-color: #666666;
+    box-shadow: none
+}
+
+.dark-mode .login-card a {
+    color: #4ade80;
+}
+
+.dark-mode .login-card a:hover {
+    color: #22c55e;
+}
