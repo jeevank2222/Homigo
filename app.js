@@ -28,9 +28,7 @@ app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
-const dbUrl = process.env.ATLAS_DB_URL;
-console.log("ATLAS_DB_URL exists:", !!process.env.ATLAS_DB_URL);
-console.log("SECRET exists:", !!process.env.SECRET);
+const dbUrl = process.env.ATLASDB_URL;
 
 async function main(){
     await mongoose.connect(dbUrl);
