@@ -86,10 +86,6 @@ app.use("/listings/:id/reviews" , reviewRouter)
 app.use("/" , userRouter)
 
 
-app.get("/",(req,res)=>{
-    res.send("im root");
-})
-
 //Error handling 
 
 app.all('/{*splat}',( req,res,next) =>{
