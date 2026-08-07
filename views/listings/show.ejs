@@ -51,8 +51,8 @@
     <!-- All Reviews Container -->
     <div class="col-lg-7">
         <div class="card detail-card">
-        <div class="card-body">
-            <h4 class="mb-4">All Reviews</h4>
+            <div class="card-body">
+                <h4 class="mb-4">All Reviews</h4
             <% if(listing.reviews.length > 0){ %>
                 <div class="row">
                 <% listing.reviews.forEach(review => { %>
@@ -83,7 +83,7 @@
     <div class="col-lg-5">
         <div class="card detail-card">
             <div class="card-body">
-                    <h4 class="mb-3">Leave a Review</h4>
+                <h4 class="mb-3">Leave a Review</h4>
 
         <form action="/listings/<%= listing.id %>/reviews" method="post" novalidate class="needs-validation">
             <div class="mb-3">

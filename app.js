@@ -19,7 +19,7 @@ const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -83,7 +83,10 @@ app.use((req,res,next)=>{
 
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews" , reviewRouter)
-app.use("/" , userRouter)
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+app.use("/", userRouter);
 
 
 //Error handling 
