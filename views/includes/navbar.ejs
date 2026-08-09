@@ -1,14 +1,14 @@
 <nav class="navbar navbar-expand-md bg-body-light  sticky-top navbar-shadow-sm">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <div class="navbar-nav navbar-logo">
+        <a class="nav-link homigo-text" href="/listings">Homigo</a>
+      </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav navbar-logo">
-        <a class="nav-link" href="/listings">Homigo</a>
-      </div>
-
+      
     <div id="filters">
         <div class="filter <%= currentPath == '/listings' ? 'active-filter' : '' %>">
             <a href="/listings" class="nav-link "><div><i class="fa-solid fa-earth-americas"></i></div>
