@@ -205,3 +205,24 @@ body.dark-mode .search-item input{
 .dark-mode .login-card a:hover {
     color: #22c55e;
 }
+
+.no-reviews {
+    color: #6c757d;
+}
+
+body.dark-mode .no-reviews {
+    color: #ffffff !important;
+}
+
+/* Review Submit Button Dark Mode Fix */
+
+body.dark-mode .detail-card .btn-outline-dark {
+    color: white;
+    border-color: white;
+    background-color: transparent;
+}
+
+body.dark-mode .detail-card .btn-outline-dark:hover {
+    background-color: white;
+    color: black;
+}
