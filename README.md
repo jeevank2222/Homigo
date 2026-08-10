@@ -334,15 +334,15 @@ User
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](screenshots/darkmode.png)
+![Home Page](screenshots/darkmode.jpg)
 
 ### Listing Page
 
-![Home Page](screenshots/listing.png)
+![Home Page](screenshots/listing.jpg)
 
 ### Review
 
-![Home Page](screenshots/review.png)
+![Home Page](screenshots/review.jpg)
 
 
 ---
