@@ -338,11 +338,11 @@ User
 
 ### Listing Page
 
-![Home Page](screenshots/listing.jpg)
+![Listing Page](screenshots/listing.jpg)
 
 ### Review
 
-![Home Page](screenshots/review.jpg)
+![Review](screenshots/review.jpg)
 
 
 ---
