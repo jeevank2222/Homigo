@@ -336,10 +336,17 @@ User
 ```markdown
 
 ### Home Page
-
-
+<img width="1366" height="728" alt="darkmode" src="https://github.com/user-attachments/assets/16e096fa-9963-4558-b07a-f84c892eb06e" />
 
 ### Listing Page
+
+<img width="1366" height="728" alt="listing" src="https://github.com/user-attachments/assets/674c48d7-e792-4ef0-a34f-702f1215cf82" />
+
+
+### Review
+
+<img width="1366" height="728" alt="review " src="https://github.com/user-attachments/assets/e7612230-dd26-4929-bb8b-b2b02e644feb" />
+
 
 ```
 
